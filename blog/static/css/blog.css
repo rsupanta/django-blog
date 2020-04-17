@@ -31,11 +31,6 @@
   border: 1px;
 }
 
-.btn-comment {
-  position: absolute;
-  right: 33em;
-}
-
 .greet {
   font-size: 15px;
   margin: 2em;
@@ -55,3 +50,16 @@
 .btn-margin {
   margin-bottom: 2em;
 }
+
+.post {
+  margin-bottom: 2em;
+}
+
+.textarea {
+  width: 700px;
+  min-height: 300px;
+}
+
+/* SideBar CSS */
+
+/* SideBar CSS */
