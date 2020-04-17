@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 {% block content %}
 
-<div class="center">
+<div class="container">
 
     {% for post in post_list  %}
 
@@ -10,9 +10,14 @@
             <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
         </h1>
         <div class="date">
-            <p>Published on: {{ post.published|date:"D M Y" }}</p>
+            <p>Published on: {{ post.published_date }}</p>
         </div>
-        <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approve_comments.count }}</a>
+
+        {% if post.approved_comments.count == 0 %}
+        <p>No Comments!</p>
+        {% else %}
+        <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
+        {% endif %}
 
     </div>
 

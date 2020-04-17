@@ -32,7 +32,7 @@
 
 <body class="">
 
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top nav-tabs techfont custom-navbar"
+    <nav class="navbar navbar-expand-sm navbar-light sticky-top nav-tabs techfont custom-navbar"
         style="background-color: #e3f2fd;">
         <a class="navbar-brand" href="{% url 'post_list' %}">rsupanta Blog</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -56,6 +56,7 @@
             <ul class="nav navbar-nav navbar-right">
 
                 {% if user.is_authenticated %}
+
                 <a class="greet">Welcome: {{ user.username }}</a>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -73,10 +74,6 @@
                         <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                     </div>
                 </li>
-
-
-
-
 
                 {% else %}
 
@@ -108,34 +105,12 @@
 
     <!-- Content Block -->
 
-    <div class="content jumbotron container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="blog_post">
-                    <div class="content-blog-div">
+    <div class="content jumbotron">
+        {% block content %}
 
-                        {% block content %}
-
-                        {% endblock %}
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
+        {% endblock %}
     </div>
 
-    <!-- <div class="loader-wrapper">
-        <span class="loader"><span class="loader-inner"></span></span>
-    </div> -->
-
-
-    <!-- Preloader Script -->
-    <!-- <script>
-        $(window).on("load", function () {
-            $(".loader-wrapper").fadeOut("slow");
-        });
-    </script> -->
 
     <!-- Bootstrap js CDN -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
