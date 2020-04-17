@@ -4,9 +4,38 @@
   margin-bottom: 10px;
 }
 
+.bigbrand {
+  font-size: 1.5em;
+}
+
 .center {
   margin-left: auto;
   margin-right: auto;
+}
+
+.postdate {
+  text-align: center;
+}
+
+.posttitle {
+  font-family: "Comic Neue", cursive;
+  font-size: 3em;
+  text-align: center;
+}
+
+.postcontent {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.5em;
+}
+
+.btn-comment {
+  position: absolute;
+  right: 0px;
+}
+
+.greet {
+  font-size: 15px;
+  margin: 20px;
 }
 
 /* Preloader */
