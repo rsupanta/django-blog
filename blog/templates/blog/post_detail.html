@@ -15,7 +15,7 @@
 
 {% endif %}
 
-<p class="postcontent">{{ post.title|safe|linebreaksbr }}</p>
+<p class="postcontent">{{ post.text|safe|linebreaksbr }}</p>
 
 
 {% if user.is_authenticated %}
@@ -85,7 +85,7 @@
     {% endif %}
 
     <p>{{ comment.text|safe|linebreaks }}</p>
-    <p>Posted By: {{ comment.author }}</p>
+    <p>Posted By: {{ comment.title }}</p>
 
     {% endif %}
 

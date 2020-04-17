@@ -35,64 +35,82 @@
 
 .greet {
   font-size: 15px;
-  margin: 20px;
+  margin: 2em;
+  border-top: 5em;
+}
+
+.content-blog-div {
+  margin: 2em;
+  width: 100%;
+  height: 100%;
+}
+
+.form-margin {
+  margin: 0.4em;
 }
 
 /* Preloader */
 
+.loader-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 body {
   background: #ecf0f1;
 }
 
-.load {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /*change these sizes to fit into your project*/
-  width: 100px;
-  height: 100px;
+.loader {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border: 4px solid #fff;
+  animation: loader 2s infinite ease;
 }
-.load hr {
-  border: 0;
-  margin: 0;
-  width: 40%;
-  height: 40%;
-  position: absolute;
-  border-radius: 50%;
-  animation: spin 2s ease infinite;
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: #fff;
+  animation: loader-inner 2s infinite ease-in;
 }
-
-.load :first-child {
-  background: #19a68c;
-  animation-delay: -1.5s;
-}
-.load :nth-child(2) {
-  background: #f63d3a;
-  animation-delay: -1s;
-}
-.load :nth-child(3) {
-  background: #fda543;
-  animation-delay: -0.5s;
-}
-.load :last-child {
-  background: #193b48;
-}
-
-@keyframes spin {
-  0%,
-  100% {
-    transform: translate(0);
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
   }
   25% {
-    transform: translate(160%);
+    transform: rotate(180deg);
   }
   50% {
-    transform: translate(160%, 160%);
+    transform: rotate(180deg);
   }
   75% {
-    transform: translate(0, 160%);
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
-
-/* Preloader */
+@keyframes loader-inner {
+  0% {
+    height: 0%;
+  }
+  25% {
+    height: 0%;
+  }
+  50% {
+    height: 100%;
+  }
+  75% {
+    height: 100%;
+  }
+  100% {
+    height: 0%;
+  }
+}
