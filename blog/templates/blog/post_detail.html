@@ -8,6 +8,7 @@
     {% if post.published_date %}
 
     <div class="date postdate">
+        <p>Author: {{ post.author }}</p>
         <p>Published On: {{ post.published_date }}</p>
     </div>
 
@@ -19,8 +20,7 @@
 
     <p class="postcontent container">{{ post.text|safe|linebreaksbr }}</p>
 
-
-    {% if user.is_authenticated %}
+    {% if post.author == user %}
 
     <a class="btn btn-primary" href="{% url 'post_edit' pk=post.pk %}"><span><svg class="bi bi-pencil-square"
                 width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -107,6 +107,5 @@
     {% endfor %}
 
 </div>
-
 
 {% endblock %}

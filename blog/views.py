@@ -9,7 +9,7 @@ from django.utils import timezone
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
-
+from django.http import Http404
 # Create your views here.
 
 
@@ -35,6 +35,10 @@ class CreatePostView(LoginRequiredMixin, CreateView):
     form_class = PostForm
     model = Post
 
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
 
 class PostUpdateView(LoginRequiredMixin, UpdateView):
     login_url = '/login/'
@@ -43,10 +47,30 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
     form_class = PostForm
     model = Post
 
+    """
+    only author of the post can update post
+    """
+
+    def dispatch(self, request, *args, **kwargs):
+        obj = self.get_object()
+        if obj.author != self.request.user:
+            raise Http404("You are not allowed to edit this Post")
+        return super(PostUpdateView, self).dispatch(request, *args, **kwargs)
+
 
 class PostDeleteView(LoginRequiredMixin, DeleteView):
     model = Post
     success_url = reverse_lazy('post_list')
+
+    """
+    only author of the post can delete post
+    """
+
+    def dispatch(self, request, *args, **kwargs):
+        obj = self.get_object()
+        if obj.author != self.request.user:
+            raise Http404("You are not allowed to delete this Post")
+        return super(PostDeleteView, self).dispatch(request, *args, **kwargs)
 
 
 class DraftListView(LoginRequiredMixin, ListView):
