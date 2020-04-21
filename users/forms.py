@@ -5,15 +5,11 @@ from django.core.exceptions import ValidationError
 
 
 class UserRegistrationForm(UserCreationForm):
-    first_name = forms.CharField(max_length=100)
-    last_name = forms.CharField(max_length=100)
     email = forms.EmailField()
 
     class Meta:
         model = User
         fields = [
-            'first_name',
-            'last_name',
             'username',
             'email',
             'password1',
