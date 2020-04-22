@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegistrationForm, UserUpdateForm, ProfileUpdateForm, ProfileNameUpdateForm
+from django.contrib.auth.models import User
 
 
 def register(request):
@@ -51,7 +52,8 @@ def profile(request):
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
 
-    full_name = request.user.profile.first_name + ' '+request.user.profile.last_name
+    full_name = request.user.profile.first_name + \
+        ' ' + request.user.profile.last_name
 
     context = {
         'full_name': full_name,
