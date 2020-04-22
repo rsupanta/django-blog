@@ -1,6 +1,6 @@
 /* #fafafa; */
 body {
-  background: #b9b9b9;
+  background: #fafafa;
   color: #333333;
   margin-top: 5rem;
 }
@@ -36,7 +36,7 @@ ul {
 
 /* #ffffff */
 .content-section {
-  background: #b4b4b4;
+  background: #ffffff;
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
