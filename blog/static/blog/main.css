@@ -1,5 +1,6 @@
+/* #fafafa; */
 body {
-  background: #fafafa;
+  background: #b9b9b9;
   color: #333333;
   margin-top: 5rem;
 }
@@ -33,8 +34,9 @@ ul {
   font-weight: 500;
 }
 
+/* #ffffff */
 .content-section {
-  background: #ffffff;
+  background: #b4b4b4;
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;

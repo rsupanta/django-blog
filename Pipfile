@@ -12,6 +12,7 @@ autopep8 = "*"
 django-crispy-forms = "*"
 psycopg2 = "*"
 pillow = "*"
+django-cleanup = "*"
 
 [requires]
 python_version = "3.8"

@@ -51,7 +51,10 @@ def profile(request):
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
 
+    full_name = request.user.profile.first_name + ' '+request.user.profile.last_name
+
     context = {
+        'full_name': full_name,
         'p_n_form': p_n_form,
         'u_form': u_form,
         'p_form': p_form,
