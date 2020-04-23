@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.messages.views import SuccessMessageMixin
 
 from django.views.generic import (
     ListView,
@@ -42,18 +43,20 @@ class PostDetailView(DetailView):
     model = Post
 
 
-class PostCreateView(LoginRequiredMixin, CreateView):
+class PostCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Post
     fields = ['title', 'content']
+    success_message = "Post created succesfully!"
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
 
-class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, UpdateView):
     model = Post
     fields = ['title', 'content']
+    success_message = "Post updated succesfully!"
 
     def form_valid(self, form):
         form.instance.author = self.request.user

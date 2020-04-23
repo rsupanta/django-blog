@@ -4,32 +4,55 @@
 
 {% if full_name|length <= 1 %}
 <div class="alert alert-warning">
-    Please add you name.
+    Please add your name.
 </div>
 {% else %}
 
 {% endif %}
 
+{% if user.profile.image.url == '/media/default.webp' %}
 
-<div class="content-section">
-    <div class="media">
-        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
-        <div class="media-body">
+<div class="alert alert-warning">
+    Please add a profile photo.
+</div>
 
-            {% if full_name|length <= 1 %}
-            <h2 class="account-heading">@{{ user.username }}</h2>
-            {% else %}
-            <h2 class="account-heading">{{ full_name }}</h2>
-            <h5 class="">@{{ user.username }}</h5>
-            {% endif %}
+{% else %}
+{% endif %}
 
-            <p class="text-secondary">{{ user.email }}</p>
-        </div>
-    </div>
+<div class="profile-section text-break">
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Profile Info</legend>
+            <div class="media">
+                <img class="rounded-circle account-img img-fluid" src="{{ user.profile.image.url }}">
+
+                <div class="media-body name-margin">
+
+                    {% if full_name|length <= 1 %}
+                    <h2 class="account-heading">@{{ user.username }}</h2>
+                    {% else %}
+                    <h2 class="account-heading">{{ full_name }}</h2>
+                    <h5 class="">@{{ user.username }}</h5>
+                    {% endif %}
+
+                    <p class="text-secondary">{{ user.email }}</p>
+                    <p><span><svg class="bi bi-calendar" width="1em" height="1em" viewBox="0 0 16 16"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M14 0H2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"
+                                    clip-rule="evenodd" />
+                                <path fill-rule="evenodd"
+                                    d="M6.5 7a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm-9 3a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm-9 3a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2z"
+                                    clip-rule="evenodd" />
+                            </svg></span> Joined: {{ user.date_joined|date:'F d, Y' }}</p>
+                </div>
+            </div>
+
+            <div class="btn btn-info img-btn">
+                {{ p_img_form }}
+            </div>
+
+            <h4 class="border-bottom mb-4 profile-margin">Profile Info</h4>
             {{ p_n_form|crispy }}
             {{ u_form|crispy }}
             {{ p_form|crispy }}
@@ -39,4 +62,6 @@
         </div>
     </form>
 </div>
+
+
 {% endblock content %}

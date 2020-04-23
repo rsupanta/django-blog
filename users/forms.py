@@ -24,6 +24,15 @@ class UserRegistrationForm(UserCreationForm):
         return data
 
 
+class ProfileImageUpdateForm(forms.ModelForm):
+
+    class Meta:
+        model = Profile
+        fields = [
+            'image',
+        ]
+
+
 class ProfileNameUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
@@ -68,6 +77,13 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = [
-            'image',
             'bio',
+        ]
+
+
+class ProfileImageUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = [
+            'image',
         ]

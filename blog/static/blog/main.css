@@ -11,15 +11,11 @@ h3,
 h4,
 h5,
 h6 {
-  color: #444444;
+  color: #575b61;
 }
 
 ul {
   margin: 0;
-}
-
-.bg-steel {
-  background-color: #5f788a;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -41,6 +37,24 @@ ul {
   border: 1px solid #dddddd;
   border-radius: 3px;
   margin-bottom: 20px;
+}
+
+.profile-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .profile-section {
+    background: #ffffff;
+    padding: 10px 10px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
 }
 
 .article-title {
@@ -80,12 +94,77 @@ a.article-title:hover {
 }
 
 .account-img {
-  height: 125px;
-  width: 125px;
-  margin-right: 20px;
+  height: 200px;
+  width: 200px;
+  margin-right: 80px;
   margin-bottom: 16px;
+}
+
+@media only screen and (max-width: 600px) {
+  .account-img {
+    height: 200px;
+    width: 200px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+  }
+}
+
+.name-margin {
+  padding-top: 2vh;
+  padding-left: 10em;
+}
+
+@media only screen and (max-width: 1199px) {
+  .name-margin {
+    padding-top: 0px;
+    padding-left: 0px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .name-margin {
+    padding-top: 0px;
+    padding-left: 0px;
+  }
 }
 
 .account-heading {
   font-size: 2.5rem;
 }
+
+.profile-margin {
+  margin-top: 1em;
+}
+
+/* File upload */
+.img-btn > a,
+br,
+input {
+  display: none;
+}
+
+.img-btn {
+  margin-left: 3.5em;
+  width: 70px;
+  height: 38px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 400px) {
+  .img-btn {
+    margin-left: 1.5em;
+    width: 70px;
+    height: 38px;
+    cursor: pointer;
+  }
+}
+/* File upload */
