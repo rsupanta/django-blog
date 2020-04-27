@@ -2,8 +2,8 @@
 
 The idea was to build a basic blogging platform.
 
-It was made using Python 3.8.1 and Django 3.0.5
-For Database, I've used PostgreSQL.
+It was made using Python 3.8.1 and Django 3.0.5<br/>
+For Database, I've used PostgreSQL.<br/>
 Bootstrap 4 alongside with CSS used for primary styling.
 
 ## Features
@@ -42,7 +42,7 @@ sqlparse==0.3.1
 
 ```
 
-\*Note: You can ignore "psycopg2==2.8.5" if you want to use SQLite for database instead of PostgreSQL. Later I'll show how you'll replace PostgreSQL with SQLite.
+\*Note: You can ignore "psycopg2==2.8.5" if you want to use SQLite for database instead of PostgreSQL.<br/> Later I'll show how you'll replace PostgreSQL with SQLite.
 
 ## Installation
 
@@ -58,14 +58,14 @@ $ git clone https://github.com/rsupanta/django-blog.git
 
 ### Setting up Project Environment
 
-I have used "pipenv" virtual environment in my project.
+I have used "pipenv" virtual environment in my project.<br/>
 Install "pipenv" if you haven't had it yet.
 
 ```
 $ pip install pipenv
 ```
 
-Then open Command-line in the root of the project directory where the Pipfile is located.
+Then open Command-line in the root of the project directory where the Pipfile is located.<br/>
 
 Run this command:
 
@@ -73,14 +73,14 @@ Run this command:
 pipenv install
 ```
 
-This usually installs all dependencies.
+This usually installs all dependencies.<br/>
 Then run:
 
 ```
 pipenv shell
 ```
 
-This will activate the environment.
+This will activate the environment.<br/>
 Check all dependencies by run:
 
 ```
@@ -93,7 +93,8 @@ If automate installation misses any package, then install that specific package 
 pipenv install (package name)
 ```
 
-\*If you want to use "virtualenv" instead of "pipenv", I've already included "requirements.txt". So all you have to do is make a virtualenv with python 3.8.1 and run this command:
+\*If you want to use "virtualenv" instead of "pipenv", I've already included "requirements.txt".<br/>
+So all you have to do is make a virtualenv with python 3.8.1 and run this command:
 
 ```
 $ pip install -r requirments.txt
@@ -104,8 +105,8 @@ $ pip install -r requirments.txt
 ### Modifying 'settings.py'
 
 I have used environment variable to hide my credentials in
-django-blog>settings.py
-So you have to replace those with your own.
+django-blog>settings.py <br/>
+So you have to replace those with your own.<br/>
 If you want to use the environment variable, simply create a ".env" file in root of project directory where "manage.py" is located and add this lines below:
 
 ```
@@ -119,10 +120,10 @@ EMAIL_HOST_USER = Email address
 EMAIL_HOST_PASSWORD = Generated app key
 ```
 
-You can generate Django 'SECRET_KEY ' by a simple google search.
-You can ignore Postgres DB variables if you want to stick with default SQLite
-I'm using Gmail for mailing.
-Generate a Gmail app password and put it here.
+You can generate Django 'SECRET_KEY ' by a simple google search.<br/>
+You can ignore Postgres DB variables if you want to stick with default SQLite<br/>
+I'm using Gmail for mailing.<br/>
+Generate a Gmail app password and put it here.<br/>
 
 \*If you want to use SQLite, replace this portion in "settings.py":
 
@@ -152,7 +153,7 @@ DATABASES = {
 
 ### Migrations
 
-You need to migrate the whole project.
+You need to migrate the whole project.<br/>
 Run commands below one by one:
 
 ```
@@ -164,7 +165,7 @@ $ python manage.py migrate
 
 ### Django Admin
 
-Now it's time to create a superuser.
+Now it's time to create a superuser.<br/>
 Run this command:
 
 ```
@@ -179,7 +180,7 @@ The final step is to enter your password. You will be asked to enter your passwo
 
 ### The Final Step
 
-Finally, you're at the bottom!
+Finally, you're at the bottom!<br/>
 After Superuser created successfully, run Django-server:
 
 ```
@@ -194,7 +195,7 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CTRL-BREAK.
 ```
 
-Go to the web browser, visit http://localhost:8000/ and start testing the app.
+Go to the web browser, visit http://localhost:8000/ and start testing the app.<br/>
 
 Admin panel available at http://localhost:8000/admin/ login using superuser credentials that you've created earlier.
 
