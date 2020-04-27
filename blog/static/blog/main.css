@@ -67,7 +67,8 @@ a.article-title:hover {
 }
 
 .article-content {
-  white-space: pre-line;
+  /* white-space: pre-line; */
+  padding-bottom: 10px;
 }
 
 .article-img {
@@ -171,4 +172,9 @@ input {
 
 .btn-font {
   font-weight: bold;
+}
+
+.article {
+  padding-left: 10px;
+  padding-right: 10px;
 }

@@ -11,6 +11,7 @@ from django.views.generic import (
     UpdateView
 )
 from .models import Post
+from .forms import PostForm
 
 
 def home(request):
@@ -44,9 +45,10 @@ class PostDetailView(DetailView):
 
 
 class PostCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
-    model = Post
-    fields = ['title', 'content']
+    # model = Post
+    form_class = PostForm
     success_message = "Post created succesfully!"
+    template_name = 'blog/post_form.html'
 
     def form_valid(self, form):
         form.instance.author = self.request.user

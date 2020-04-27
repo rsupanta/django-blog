@@ -3,9 +3,10 @@
 {% block content %}
 
 <article class="media content-section">
-    <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}" alt="" srcset="">
-    <div class="media-body">
+
+    <div class="media-body article">
         <div class="article-metadata">
+            <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}" alt="" srcset="">
             <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
             <small class="text-muted">{{ object.date_posted|date:'F d, Y' }}</small>
 
@@ -38,8 +39,12 @@
             {% endif %}
 
         </div>
-        <h2 class="article-title">{{ object.title }}</h2>
-        <p class="article-content" align="justify">{{ object.content }}</p>
+        <h2 class="article-title" align='justify'>{{ object.title }}</h2>
+        <p class="article-content">
+            {% autoescape off %}
+            {{ object.content }}
+            {% endautoescape %}
+        </p>
     </div>
 </article>
 

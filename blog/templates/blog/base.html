@@ -20,6 +20,19 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
 
+
+    <!-- TinyMCE Integration -->
+    {{ form.media }}
+
+    <script src="{% static '/tiny_mce/tiny_mce.js' %}"></script>
+    <script>
+        tinyMCE.init({
+            'selector': 'textarea'
+        })
+    </script>
+    <!-- tinyMCE End -->
+
+
     {% if title %}
     <title>Django Blog - {{ title }}</title>
 
@@ -28,6 +41,10 @@
     <title>Django Blog</title>
 
     {% endif %}
+
+    {% block head %}
+
+    {% endblock head %}
 
 
 </head>
