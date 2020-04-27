@@ -3,8 +3,11 @@
 {% block content %}
 
 {% if full_name|length <= 1 %}
-<div class="alert alert-warning">
+<div class="alert alert-warning" alert-dismissible fade show" role="alert">
     Please add your name.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
 </div>
 {% else %}
 
@@ -12,8 +15,11 @@
 
 {% if user.profile.image.url == '/media/default.webp' %}
 
-<div class="alert alert-warning">
+<div class="alert alert-warning" alert-dismissible fade show" role="alert">
     Please add a profile photo.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
 </div>
 
 {% else %}

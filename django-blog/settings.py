@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'users',
     'crispy_forms',
     'django_cleanup',
+    'tinymce',
 ]
 
 MIDDLEWARE = [

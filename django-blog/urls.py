@@ -50,6 +50,8 @@ urlpatterns = [
              template_name='users/password_reset_complete.html'),
          name='password_reset_complete'),
 
+    path('tinymce/', include('tinymce.urls')),
+
     path('', include('blog.urls')),
 ]
 

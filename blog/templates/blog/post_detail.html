@@ -11,9 +11,9 @@
 
             {% if object.author == user %}
             <div>
-                <a class="btn btn-outline-secondary mt-1 mb-1" href="{% url 'post-update' object.id %}"><span><svg
-                            class="bi bi-pencil" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                            xmlns="http://www.w3.org/2000/svg">
+                <a class="btn btn-outline-secondary btn-sm mt-1 mb-1 btn-font"
+                    href="{% url 'post-update' object.id %}"><span><svg class="bi bi-pencil" width="1em" height="1em"
+                            viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
                                 d="M11.293 1.293a1 1 0 011.414 0l2 2a1 1 0 010 1.414l-9 9a1 1 0 01-.39.242l-3 1a1 1 0 01-1.266-1.265l1-3a1 1 0 01.242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z"
                                 clip-rule="evenodd" />
@@ -21,9 +21,9 @@
                                 d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 00.5.5H4v.5a.5.5 0 00.5.5H5v.5a.5.5 0 00.5.5H6v-1.5a.5.5 0 00-.5-.5H5v-.5a.5.5 0 00-.5-.5H3z"
                                 clip-rule="evenodd" />
                         </svg></span> Update</a>
-                <a class="btn btn-outline-danger mt-1 mb-1" href="{% url 'post-delete' object.id %}"><span><svg
-                            class="bi bi-x-square" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                            xmlns="http://www.w3.org/2000/svg">
+                <a class="btn btn-outline-danger btn-sm mt-1 mb-1 btn-font"
+                    href="{% url 'post-delete' object.id %}"><span><svg class="bi bi-x-square" width="1em" height="1em"
+                            viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
                                 d="M14 1H2a1 1 0 00-1 1v12a1 1 0 001 1h12a1 1 0 001-1V2a1 1 0 00-1-1zM2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2z"
                                 clip-rule="evenodd" />
@@ -43,4 +43,41 @@
     </div>
 </article>
 
+
+
+<!-- disqus integration -->
+<div id="disqus_thread"></div>
+<script>
+
+    // modified 
+
+    var disqus_config = function () {
+        this.page.url = "http://127.0.0.1:8000/post/{{object.id}}/";
+        this.page.identifier = "{{object.id}}";
+        console.log(this.page.identifier)
+        console.log(this.page.url)
+    };
+
+    // modified
+
+    (function () {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = 'https://rsupanta.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments
+        powered by Disqus.</a></noscript>
+<!-- disqus integration -->
+
 {% endblock content %}
+
+
+{% block script %}
+
+<script id="dsq-count-scr" src="//rsupanta.disqus.com/count.js" async></script>
+
+{% endblock script %}
