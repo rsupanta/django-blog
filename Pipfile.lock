@@ -50,11 +50,11 @@
         },
         "django-tinymce": {
             "hashes": [
-                "sha256:0ad9c91851261dafb6f4abfc80de5560002fbfb1a681a1cec2f0eca349462a4a",
-                "sha256:fe82e476059b27187eaec849b6b765ef9918a25e64e419861c4f507d0c8cc143"
+                "sha256:275653dbf09fbd3347928757d6baf29040b42fe5c5d95396418c36aa4b1517eb",
+                "sha256:4241eb201c670892aa8980a130652f4ae818ba24702f078336296d25e9e1658b"
             ],
             "index": "pypi",
-            "version": "==3.0.2"
+            "version": "==3.4.0"
         },
         "pillow": {
             "hashes": [
